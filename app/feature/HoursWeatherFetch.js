@@ -1,14 +1,14 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import HoursDays from "../-component/HoursDays"; // کامپوننت نمایش ساعت‌های آینده
-import useGeolocation from "../hooks/useGeolocation"; // کاستوم هوک برای دریافت لوکیشن
+import HoursDays from "../component/HoursDays";
+import useGeolocation from "../hooks/useGeolocation";
 import weatherIconMap from "../utility/weatherIcons";
 
-const apiKey = "42f411545c107208b0328f08f5b8c4c8"; // کلید API
+const apiKey = "42f411545c107208b0328f08f5b8c4c8";
 
 export default function WeatherHours() {
-  const { location, error: locationError } = useGeolocation(); // دریافت لوکیشن کاربر
+  const { location, error: locationError } = useGeolocation();
   const [forecastData, setForecastData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);

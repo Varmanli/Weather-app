@@ -5,7 +5,7 @@ const apiKey = "42f411545c107208b0328f08f5b8c4c8";
 
 import { useEffect, useState } from "react";
 import useGeolocation from "../hooks/useGeolocation";
-import DayDetail from "../-component/DayDetail";
+import DayDetail from "../component/DayDetail";
 import weatherIconMap from "../utility/weatherIcons";
 
 export default function WeatherByLocation() {

@@ -1,6 +1,6 @@
 "use client";
 import { useState, useEffect } from "react";
-import WeekDays from "../-component/WeekDays";
+import WeekDays from "../component/WeekDays";
 import useGeolocation from "../hooks/useGeolocation"; // هوک لوکیشن
 
 function WeekWeatherFetch() {

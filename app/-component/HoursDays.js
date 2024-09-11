@@ -3,7 +3,7 @@ import defaultImage from "@/public/imgs/default.svg";
 
 function HoursDays({ time, temp, svg }) {
   return (
-    <div className="flex flex-col justify-center items-center gap-2">
+    <div className="flex flex-col justify-center  items-center gap-2">
       <Image src={svg} alt={""} width={29}/>
       <div className="flex flex-col items-center">
         <p className="font-semibold text-lg">{Math.ceil(temp)}°</p>

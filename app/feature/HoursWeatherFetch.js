@@ -54,7 +54,7 @@ export default function WeatherHours() {
   }
 
   return (
-    <div className="flex justify-between items-center gap-4 mx-4">
+    <div className="flex justify-between items-center gap-4 mx-7">
       {forecastData.map((hour, index) => {
         const weatherCondition = hour.weather[0].description.toLowerCase();
         const icon = getWeatherIcon(weatherCondition);

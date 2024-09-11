@@ -26,6 +26,7 @@ export default function Background({ children }) {
     <div
       style={{
         background: gradient,
+        color: "#ffff",
         borderRadius: 20,
         paddingBottom: 20,
         backgroundSize: "cover",

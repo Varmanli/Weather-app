@@ -3,11 +3,11 @@
 function getCurrentTimeOfDay() {
   const hour = new Date().getHours();
 
-  if (hour >= 5 && hour < 8) return "dawn";
-  if (hour >= 8 && hour < 12) return "morning";
-  if (hour >= 12 && hour < 17) return "noon";
-  if (hour >= 17 && hour < 20) return "evening";
-  return "night"; // شب
+  if (hour >= 0 && hour < 6) return "dawn";
+  if (hour >= 7 && hour < 11) return "morning";
+  if (hour >= 12 && hour < 16) return "noon";
+  if (hour >= 17 && hour < 19) return "evening";
+  return "night"; 
 }
 
 const gradients = {

@@ -3,10 +3,9 @@ import { format } from "date-fns"; // کتابخانه برای فرمت تار�
 function WeekDays({ weeklyData }) {
   const getDayName = (dateString) => {
     const date = new Date(dateString); // تبدیل به تاریخ
-    return format(date, "EEEE"); // گرفتن نام روز هفته (مانند Monday, Tuesday)
+    return format(date, "EEEE");
   };
 
-  // بررسی وجود داده‌ها
   if (
     !weeklyData ||
     !weeklyData.temperature_2m_max ||
@@ -24,8 +23,11 @@ function WeekDays({ weeklyData }) {
             {getDayName(weeklyData.time[index])}
           </h2>
           <div className="flex gap-7 items-center">
-            <h2>
-              {weeklyData.temperature_2m_min[index]}° / {maxTemp}°
+            <h2 className="font-semibold">
+              {Math.ceil(weeklyData.temperature_2m_min[index])}°/ 
+              <span className="text-secondaryTextColor/70">
+                {Math.ceil(maxTemp)}°
+              </span>
             </h2>
           </div>
         </div>

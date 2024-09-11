@@ -24,7 +24,7 @@ function DayDetail({ temp, tempMax, tempMin, name, svg }) {
       </div>
       <div>
         <Image
-          src={svg}
+          src={svg || defaultImage}
           alt="Weather Icon"
           width={250}
           height={250}

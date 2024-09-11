@@ -1,6 +1,5 @@
 import React from "react";
 import { format } from "date-fns"; // کتابخانه برای فرمت تاریخ
-
 function WeekDays({ weeklyData }) {
   const getDayName = (dateString) => {
     const date = new Date(dateString); // تبدیل به تاریخ

@@ -4,7 +4,7 @@ import scatteredCloudsIcon from "../../public/imgs/weathers/scattered_clouds.svg
 import brokenCloudsIcon from "../../public/imgs/weathers/broken_cloud.svg";
 import showerRainIcon from "../../public/imgs/weathers/shower_raint.svg";
 import rainIcon from "../../public/imgs/weathers/rain.svg";
-import thunderstormIcon from "../../public/imgs/weathers/thunderstorm.svg"; // بدون فاصله
+import thunderstormIcon from "../../public/imgs/weathers/thunderstorm.svg";
 import snowIcon from "../../public/imgs/weathers/snow.svg";
 import mistIcon from "../../public/imgs/weathers/mist.svg";
 

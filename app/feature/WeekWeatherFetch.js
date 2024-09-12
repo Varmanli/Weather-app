@@ -1,17 +1,17 @@
 "use client";
 import { useState, useEffect } from "react";
 import WeekDays from "../component/WeekDays";
-import useGeolocation from "../hooks/useGeolocation"; // هوک لوکیشن
+import useGeolocation from "../hooks/useGeolocation";
 
 function WeekWeatherFetch() {
   const { location, error: locationError } = useGeolocation();
-  const [weeklyData, setWeeklyData] = useState({}); // مقدار پیش‌فرض شیء خالی
+  const [weeklyData, setWeeklyData] = useState({});
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
   useEffect(() => {
     const fetchWeeklyWeather = async () => {
-      if (!location) return; // اطمینان از دریافت لوکیشن
+      if (!location) return;
       try {
         setLoading(true);
         console.log("Fetching weather data...");
@@ -26,7 +26,7 @@ function WeekWeatherFetch() {
         console.log("Weather data fetched:", data);
 
         if (data.daily) {
-          setWeeklyData(data.daily); // قرار دادن داده‌ها به شکل صحیح
+          setWeeklyData(data.daily);
         } else {
           throw new Error("No daily weather data found");
         }
@@ -43,10 +43,10 @@ function WeekWeatherFetch() {
 
   if (loading)
     return (
-      <div class="flex justify-center items-center  gap-2 h-[20px]">
-        <div class="w-3 h-3 rounded-full animate-pulse bg-blue-600"></div>
-        <div class="w-3 h-3 rounded-full animate-pulse bg-blue-600"></div>
-        <div class="w-3 h-3 rounded-full animate-pulse bg-blue-600"></div>
+      <div className="flex justify-center items-center  gap-2 h-[20px]">
+        <div className="w-3 h-3 rounded-full animate-pulse bg-blue-600"></div>
+        <div className="w-3 h-3 rounded-full animate-pulse bg-blue-600"></div>
+        <div className="w-3 h-3 rounded-full animate-pulse bg-blue-600"></div>
       </div>
     );
   if (error) return <p>Error: {error}</p>;

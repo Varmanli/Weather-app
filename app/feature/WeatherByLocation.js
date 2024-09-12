@@ -1,14 +1,12 @@
 "use client";
 const apiKey = "42f411545c107208b0328f08f5b8c4c8";
 
-// components/WeatherByLocation.js
-
 import { useEffect, useState } from "react";
 import useGeolocation from "../hooks/useGeolocation";
 import DayDetail from "../component/DayDetail";
 import weatherIconMap from "../utility/weatherIcons";
 
-export default function WeatherByLocation() {
+function WeatherByLocation() {
   const { location, error } = useGeolocation();
   const [weatherData, setWeatherData] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -45,14 +43,13 @@ export default function WeatherByLocation() {
     fetchWeather();
   }, [location]);
 
-  console.log("Weather data:", weatherData);
 
   if (loading)
     return (
-      <div class="flex justify-center items-center  gap-2 h-[20px]">
-        <div class="w-3 h-3 rounded-full animate-pulse bg-blue-600"></div>
-        <div class="w-3 h-3 rounded-full animate-pulse bg-blue-600"></div>
-        <div class="w-3 h-3 rounded-full animate-pulse bg-blue-600"></div>
+      <div className="flex justify-center items-center  gap-2 h-[20px]">
+        <div className="w-3 h-3 rounded-full animate-pulse bg-blue-600"></div>
+        <div className="w-3 h-3 rounded-full animate-pulse bg-blue-600"></div>
+        <div className="w-3 h-3 rounded-full animate-pulse bg-blue-600"></div>
       </div>
     );
   if (error) return <p>Error: {error}</p>;
@@ -64,10 +61,8 @@ export default function WeatherByLocation() {
   const weatherCondition = weather[0].description.toLowerCase();
 
   function getWeatherIcon(condition) {
-    console.log("Getting icon for condition:", condition);
     const icon = weatherIconMap[condition];
-    console.log("Selected icon:", icon); // بررسی آیکون انتخاب شده
-    return icon || weatherIconMap.default; // استفاده از آیکون پیش‌فرض در صورت نبود آیکون
+    return icon;
   }
 
   const weatherIcon = getWeatherIcon(weatherCondition);
@@ -82,3 +77,4 @@ export default function WeatherByLocation() {
     />
   );
 }
+export default WeatherByLocation;

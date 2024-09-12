@@ -7,7 +7,7 @@ import weatherIconMap from "../utility/weatherIcons";
 
 const apiKey = "42f411545c107208b0328f08f5b8c4c8";
 
-export default function WeatherHours() {
+function WeatherHours() {
   const { location, error: locationError } = useGeolocation();
   const [forecastData, setForecastData] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -26,7 +26,7 @@ export default function WeatherHours() {
           throw new Error("Failed to fetch weather data");
         }
         const data = await res.json();
-        const nextHours = data.list.slice(0, 7); // دریافت اطلاعات ۷ ساعت آینده
+        const nextHours = data.list.slice(0, 7);
         setForecastData(nextHours);
       } catch (err) {
         setError(err.message);
@@ -41,10 +41,10 @@ export default function WeatherHours() {
   if (locationError) return <p>Error getting location: {locationError}</p>;
   if (loading)
     return (
-      <div class="flex justify-center items-center  gap-2 h-[50px]">
-        <div class="w-3 h-3 rounded-full animate-pulse bg-blue-600"></div>
-        <div class="w-3 h-3 rounded-full animate-pulse bg-blue-600"></div>
-        <div class="w-3 h-3 rounded-full animate-pulse bg-blue-600"></div>
+      <div className="flex justify-center items-center  gap-2 h-[50px]">
+        <div className="w-3 h-3 rounded-full animate-pulse bg-blue-600"></div>
+        <div className="w-3 h-3 rounded-full animate-pulse bg-blue-600"></div>
+        <div className="w-3 h-3 rounded-full animate-pulse bg-blue-600"></div>
       </div>
     );
   if (error) return <p>Error fetching weather data: {error}</p>;
@@ -72,3 +72,4 @@ export default function WeatherHours() {
     </div>
   );
 }
+export default WeatherHours;

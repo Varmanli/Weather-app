@@ -1,8 +1,9 @@
 "use client";
 
-function getCurrentTimeOfDay() {
-  const hour = new Date().getHours();
+import { useState, useEffect } from "react";
+import useGeolocation from "@/app/hooks/useGeolocation";
 
+function getCurrentTimeOfDay(hour) {
   if (hour >= 0 && hour < 6) return "dawn";
   if (hour >= 6 && hour < 11) return "morning";
   if (hour >= 11 && hour < 16) return "noon";
@@ -19,8 +20,31 @@ const gradients = {
 };
 
 function Background({ children }) {
-  const timeOfDay = getCurrentTimeOfDay();
-  const gradient = gradients[timeOfDay] || gradients.night;
+  const { location } = useGeolocation();
+  const [localTime, setLocalTime] = useState(null);
+
+  useEffect(() => {
+    if (location) {
+      const currentTime = new Date();
+      const options = {
+        hour: "numeric",
+        timeZoneName: "short",
+        timeZone: Intl.DateTimeFormat().resolvedOptions().timeZone, // منطقه زمانی
+      };
+
+      const formattedTime = new Intl.DateTimeFormat("en-US", options).format(
+        currentTime
+      );
+      const localHour = currentTime.getHours(); // ساعت محلی
+      setLocalTime(localHour);
+
+      console.log("Local time: ", formattedTime); // نمایش زمان محلی
+    }
+  }, [location]);
+
+  const timeOfDay =
+    localTime !== null ? getCurrentTimeOfDay(localTime) : "night";
+  const gradient = gradients[timeOfDay];
 
   return (
     <div

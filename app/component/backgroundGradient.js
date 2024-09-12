@@ -36,8 +36,6 @@ function Background({ children }) {
       );
       const localHour = currentTime.getHours(); // ساعت محلی
       setLocalTime(localHour);
-
-      console.log("Local time: ", formattedTime); // نمایش زمان محلی
     }
   }, [location]);
 
@@ -45,9 +43,7 @@ function Background({ children }) {
     localTime !== null ? getCurrentTimeOfDay(localTime) : "night";
   const gradient = gradients[timeOfDay];
 
-  return (
-    <div className={`${gradient} text-white rounded-lg p-4`}>{children}</div>
-  );
+  return <div className={`${gradient} text-white rounded-xl`}>{children}</div>;
 }
 
 export default Background;

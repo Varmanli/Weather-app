@@ -18,7 +18,7 @@ const gradients = {
   night: "linear-gradient(to bottom, #35416C, #151515)",
 };
 
-export default function Background({ children }) {
+function Background({ children }) {
   const timeOfDay = getCurrentTimeOfDay();
   const gradient = gradients[timeOfDay] || gradients.night;
 
@@ -36,3 +36,5 @@ export default function Background({ children }) {
     </div>
   );
 }
+
+export default Background;

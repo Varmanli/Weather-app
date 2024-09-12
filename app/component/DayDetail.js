@@ -5,7 +5,7 @@ import defaultImage from "@/public/imgs/default.svg";
 function DayDetail({ temp, tempMax, tempMin, name, svg }) {
   return (
     <section className="flex justify-between items-center gap-10 mb-10">
-      <div className="flex flex-col justify-center items-start gap-7 ml-7 mt-[70px]">
+      <div className="flex flex-col justify-center items-start gap-7 ml-4 mt-[70px]">
         <div className="flex flex-col gap-2">
           <h2 className="text-5xl font-bold">{Math.ceil(temp)}°</h2>
           <h3 className="text-2xl font-bold ml-1 text-secondaryTextColor">

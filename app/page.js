@@ -5,7 +5,7 @@ import WeekWeatherFetch from "./feature/WeekWeatherFetch";
 
 export default function Home() {
   return (
-    <main className=" md:w-[500px] m-10 mx-auto">
+    <main className=" md:w-[500px] mx-auto">
       <Background>
         <WeatherByLocation />
         <HoursWeatherFetch />

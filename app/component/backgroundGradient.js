@@ -43,7 +43,9 @@ function Background({ children }) {
     localTime !== null ? getCurrentTimeOfDay(localTime) : "night";
   const gradient = gradients[timeOfDay];
 
-  return <div className={`${gradient} text-white rounded-xl`}>{children}</div>;
+  return (
+    <div className={`${gradient} text-white rounded-xl py-4`}>{children}</div>
+  );
 }
 
 export default Background;

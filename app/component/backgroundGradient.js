@@ -12,13 +12,12 @@ function getCurrentTimeOfDay(hour) {
 }
 
 const gradients = {
-  dawn: "linear-gradient(to bottom, #1C7891, #162A2F)",
-  morning: "linear-gradient(to bottom, #32D0FC, #005CE0)",
-  noon: "linear-gradient(to bottom, #FC9F32, #D33A3A)",
-  evening: "linear-gradient(to bottom, #030632, #4000A3)",
-  night: "linear-gradient(to bottom, #35416C, #151515)",
+  dawn: "bg-gradient-to-b from-[#1C7891] to-[#162A2F]",
+  morning: "bg-gradient-to-b from-[#32D0FC] to-[#005CE0]",
+  noon: "bg-gradient-to-b from-[#FC9F32] to-[#D33A3A]",
+  evening: "bg-gradient-to-b from-[#030632] to-[#4000A3]",
+  night: "bg-gradient-to-b from-[#35416C] to-[#151515]",
 };
-
 function Background({ children }) {
   const { location } = useGeolocation();
   const [localTime, setLocalTime] = useState(null);
@@ -47,17 +46,7 @@ function Background({ children }) {
   const gradient = gradients[timeOfDay];
 
   return (
-    <div
-      style={{
-        background: gradient,
-        color: "#ffff",
-        borderRadius: 20,
-        paddingBottom: 20,
-        backgroundSize: "cover",
-      }}
-    >
-      {children}
-    </div>
+    <div className={`${gradient} text-white rounded-lg p-4`}>{children}</div>
   );
 }
 
